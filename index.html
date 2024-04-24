@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Home</title>
+    <title>Kurt Vonnegut Ipsum</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap"
       rel="stylesheet"
     />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <link rel="stylesheet" type="text/css" href="./styles/style.css" />
   </head>
-  <body>
+  <body {{THEME_VALUE}}>
     <main>
       <div class="wrapper">
         <h1>Kurt Vonnegut Ipsum</h1>
         <form method="get" action="./" class="controls">
           <div class="control">
-            <input name="count" type="number" value="3" />
+            <input name="count" type="number" value="{{COUNT_VALUE}}" />
           </div>
 
-          <div class="control">
-            <select name="units" value="paragraphs">
-              <option value="words">Words</option>
-              <option value="sentences">Sentences</option>
-              <option value="paragraphs">Paragraphs</option>
+          <div class="control select_wrapper">
+            <select id="mode" name="mode" value="{{MODE_VALUE}}">
+              <option value="1" {{MODE_1_SELECTED}}>Words</option>
+              <option value="2" {{MODE_2_SELECTED}}>Sentences</option>
+              <option value="3" {{MODE_3_SELECTED}}>Paragraphs</option>
             </select>
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 15 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="select_icon"
+            >
+              <path
+                d="M1.86905 6.8766L1.90737 6.93556C2.27736 7.53548 2.72843 7.99835 3.20601 8.48775L3.32099 8.60567C3.49493 8.78403 3.66445 8.96387 3.8325 9.14371C4.59752 9.9559 5.31982 10.7239 6.32073 11.2855C6.38706 11.3224 6.45634 11.3666 6.5271 11.4108C6.78653 11.573 7.08136 11.7557 7.42774 11.7867C7.47638 11.7911 7.52355 11.7926 7.57072 11.7926C8.57457 11.7926 9.36023 10.8728 9.9351 10.2006L10.0044 10.1195C10.4849 9.55937 10.9227 8.95503 11.3458 8.36982C11.5787 8.04701 11.8131 7.7242 12.0533 7.40873C12.2405 7.16257 12.4528 6.92375 12.6577 6.69383C12.8228 6.50662 12.9894 6.31941 13.1471 6.12484C13.2282 6.02461 13.3225 5.92585 13.4183 5.82561C13.8075 5.41584 14.3396 4.85421 13.7839 4.16289C13.6217 3.96095 13.0395 3.30206 12.3703 3.30206C12.1418 3.30206 11.931 3.37871 11.7438 3.53054C11.2706 3.91379 10.8608 4.56092 10.5011 5.1299C10.4083 5.27583 10.3198 5.41587 10.2373 5.54115C9.82305 6.16318 9.34694 6.68798 8.76765 7.31001C8.60993 7.47953 8.47284 7.66379 8.34018 7.84364C8.2429 7.9763 8.14413 8.10749 8.038 8.23277L7.98199 8.2991C7.83605 8.47304 7.75056 8.57033 7.68423 8.57033C7.64885 8.57033 7.57515 8.54969 7.43364 8.45535C7.29065 8.35954 7.13883 8.15022 6.99141 7.94678C6.87201 7.78316 6.74967 7.61217 6.62142 7.48984C6.46812 7.34244 6.30155 7.20535 6.13644 7.06973C5.95366 6.91937 5.77972 6.77786 5.62199 6.61867C5.39941 6.39609 5.2004 6.14256 4.99108 5.87426C4.79651 5.62514 4.59456 5.36716 4.36758 5.12837C4.13173 4.8822 3.90324 4.63897 3.69984 4.37071C3.36965 3.93588 3.00852 3.75161 2.64441 3.82826C2.14324 3.93586 1.43863 4.70531 1.22931 5.0075C0.823953 5.59418 1.29122 6.15727 1.63173 6.56852C1.71722 6.67613 1.80271 6.77783 1.86905 6.8766Z"
+                fill="currentColor"
+              />
+            </svg>
           </div>
 
           <span>
@@ -37,7 +48,7 @@
                 name="nsfw"
                 type="checkbox"
                 value="true"
-                checked
+                {{NSFW_VALUE}}
               />
               <svg
                 class="assterisk"
@@ -65,7 +76,7 @@
             <button type="submit">So it goes (Generate)</button>
           </div>
         </form>
-
+        <!-- output -->
         <p>
           Life is no way to treat an animal. Wide open beavers inside a hoosier
           cat’s cradle. Hello babies. Welcome to Earth. Ting-a-ling mother
@@ -86,24 +97,36 @@
           Slaughterhouse ice-nine karass with bokonon. On the outside, babies,
           you've got a hundred years here. So it goes.
         </p>
+        <!-- /output -->
+        <footer>
+          This is an open-source fan-made tool.
+          <ul>
+            <li>
+              <a
+                href="https://github.com/arronhunt/vonnegut-ipsum"
+                target="_blank"
+                >Fork on GitHub</a
+              >
+            </li>
+            <li><a href="{{HOST}}/api" target="_blank">REST API</a></li>
+          </ul>
+        </footer>
       </div>
       <div class="portrait-test"></div>
     </main>
     <script>
-      // Get query parameters. If the `theme` parameter is set, set data-theme value on the body tag to its value
-      console.log("Hello world");
-      const urlParams = new URLSearchParams(window.location.search);
-      const theme = urlParams.get("theme");
-      if (theme) {
-        document.body.dataset.theme = theme;
-      }
-
       const themes = [
         "slaughterhouse",
         "rosewater",
         "monkeyhouse",
         "breakfast",
         "playerpiano",
+        "sirens",
+        "mothernight",
+        "slapstick",
+        "galapagos",
+        "catscradle",
+        "jailbird",
       ];
       (function () {
         let theme_field = document.getElementById("theme_value");

@@ -65,6 +65,48 @@ body {
   --color-stroke: #5a3a6b;
   --color-text: #e8b3a5;
 }
+[data-theme="sirens"] {
+  --color-primary: #b986af;
+  --color-accent: #f3ef72;
+  --color-fill: #f3ef72;
+  --color-stroke: #404040;
+  --color-text: #f3ef72;
+}
+[data-theme="mothernight"] {
+  --color-primary: #23408e;
+  --color-accent: #fbdc34;
+  --color-fill: #211f20;
+  --color-stroke: #beb7e0;
+  --color-text: #fbdc34;
+}
+[data-theme="slapstick"] {
+  --color-primary: #ffd800;
+  --color-accent: #f43800;
+  --color-fill: #f43800;
+  --color-stroke: #000000;
+  --color-text: #000000;
+}
+[data-theme="galapagos"] {
+  --color-primary: #bae0cf;
+  --color-accent: #ef6062;
+  --color-fill: #ef6062;
+  --color-stroke: #5f3b31;
+  --color-text: #000000;
+}
+[data-theme="catscradle"] {
+  --color-primary: #17b9d6;
+  --color-accent: #d5f0bf;
+  --color-fill: #272022;
+  --color-stroke: #d5f0bf;
+  --color-text: #000000;
+}
+[data-theme="jailbird"] {
+  --color-primary: #c51230;
+  --color-accent: #ffffff;
+  --color-fill: #85a9d9;
+  --color-stroke: #062462;
+  --color-text: #ffffff;
+}
 
 html,
 body,
@@ -113,6 +155,7 @@ main {
 }
 
 .control {
+  flex-wrap: nowrap;
   position: relative;
   min-height: 2.5rem;
   min-width: 2.5rem;
@@ -125,6 +168,16 @@ main {
 }
 .control:focus-within {
   background: #fff;
+}
+.select_wrapper select {
+  padding-right: 2.5rem;
+}
+.select_icon {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  color: var(--color-stroke);
+  pointer-events: none;
 }
 
 .control::before {
@@ -215,6 +268,19 @@ input:checked + .assterisk {
   mask-image: url("../images/vonnegut.png");
   mask-size: contain;
   mask-repeat: no-repeat;
+}
+
+footer ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--color-accent);
 }
 
 @media screen and (max-width: 960px) {
