@@ -10,8 +10,6 @@ export default async (request, context) => {
   // Booleans are extra tricky because they are strings in the URL.
   const url = new URL(request.url);
 
-  console.log(url);
-
   const count = url.searchParams.get("count") || 5;
   const mode = url.searchParams.get("mode") || 3;
   const nsfw = url.searchParams.get("nsfw")
@@ -26,7 +24,7 @@ export default async (request, context) => {
   // the ?z=0 does nothing other than make the string concat easier.
   let { text } = await fetch(
     [
-      "http://localhost:8888/.netlify/functions/api?z=0",
+      `${url.origin}/.netlify/functions/api?z=0`,
       `count=${count}`,
       `mode=${mode}`,
       `nsfw=${nsfw}`,
