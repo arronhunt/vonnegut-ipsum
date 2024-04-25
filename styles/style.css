@@ -3,6 +3,10 @@
   src: url("../fonts/Spade-Regular.woff2") format("woff2"),
     url("../fonts/Spade-Regular.woff") format("woff");
 }
+@font-face {
+  font-family: "Vonny Regular";
+  src: url(../fonts/Vonny-Regular.woff2) format("woff2");
+}
 
 :root {
   --color-primary: #fff;
@@ -17,6 +21,17 @@
   min-width: fit-content;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 body {
   background-color: var(--color-primary);
   font-family: Arial, sans-serif;
@@ -24,8 +39,6 @@ body {
   padding: 0;
   font-size: 16px;
   color: var(--color-text);
-
-  font-family: "PT Serif", serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -125,6 +138,11 @@ h5 {
 h1 {
   font-size: calc(100vw / 25);
   font-weight: normal;
+  text-transform: uppercase;
+}
+.writing {
+  font-family: "Vonny Regular", sans-serif;
+  letter-spacing: -5px;
 }
 
 p {
@@ -193,11 +211,21 @@ main {
 }
 
 .control > * {
+  font-family: "Vonny Regular", sans-serif;
+  letter-spacing: -1px;
   display: block;
   margin: 0;
   padding: 10px;
   height: 2.5rem;
   min-width: 2.5rem;
+}
+.control > *:focus {
+  color: var(--color-stroke);
+}
+label {
+  font-family: "Vonny Regular", sans-serif;
+  letter-spacing: -2px;
+  margin-right: 1rem;
 }
 
 button,
@@ -270,6 +298,13 @@ input:checked + .assterisk {
   mask-repeat: no-repeat;
 }
 
+footer {
+  color: var(--color-accent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
 footer ul {
   list-style-type: none;
   display: flex;
@@ -278,9 +313,9 @@ footer ul {
   gap: 1rem;
 }
 a {
-  color: var(--color-text);
+  color: var(--color-accent);
   text-decoration: none;
-  border-bottom: 1px dashed var(--color-accent);
+  border-bottom: 1px dashed currentColor;
 }
 
 @media screen and (max-width: 960px) {

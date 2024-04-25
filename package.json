@@ -2,13 +2,11 @@
   "name": "vonnegut-ipsum",
   "version": "1.0.0",
   "description": "",
-  "main": "generate.js",
+  "main": "lib/generate.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "netlify dev"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@netlify/edge-functions": "^2.5.1"
-  }
+  "author": "Arron Hunt",
+  "license": "WTFPL"
 }

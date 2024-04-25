@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Kurt Vonnegut Ipsum</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Opengraph image -->
+    <meta property="og:image" content="{{HOST}}/images/og-image.png" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
   </head>
   <body {{THEME_VALUE}}>
     <main>
       <div class="wrapper">
-        <h1>Kurt Vonnegut Ipsum</h1>
+        <h1>Kurt Vonnegut <br /><span class="writing">Lorem Ipsum</span></h1>
         <form method="get" action="./" class="controls">
           <div class="control">
+            <label class="visually-hidden" for="count">How many?</label>
             <input name="count" type="number" value="{{COUNT_VALUE}}" />
           </div>
 
           <div class="control select_wrapper">
+            <label class="visually-hidden" for="mode">Generation mode</label>
             <select id="mode" name="mode" value="{{MODE_VALUE}}">
               <option value="1" {{MODE_1_SELECTED}}>Words</option>
               <option value="2" {{MODE_2_SELECTED}}>Sentences</option>
@@ -64,7 +66,7 @@
                 />
               </svg>
             </div>
-            <label for="nsfw_filter">NSFW?</label>
+            <label for="nsfw_filter">NSFW</label>
           </span>
           <input
             id="theme_value"

@@ -14,7 +14,7 @@ export default async (request, context) => {
   const mode = url.searchParams.get("mode") || 3;
   const nsfw = url.searchParams.get("nsfw")
     ? parseBoolean(url.searchParams.get("nsfw"))
-    : false;
+    : true;
   const pilgrim_mode = url.searchParams.get("pilgrim_mode")
     ? parseBoolean(url.searchParams.get("pilgrim_mode"))
     : true;
@@ -24,7 +24,7 @@ export default async (request, context) => {
   // the ?z=0 does nothing other than make the string concat easier.
   let { text } = await fetch(
     [
-      `${url.origin}/.netlify/functions/api?z=0`,
+      `${url.origin}/api?z=0`,
       `count=${count}`,
       `mode=${mode}`,
       `nsfw=${nsfw}`,
@@ -51,7 +51,7 @@ export default async (request, context) => {
     .replace(find_not_selected, "")
     .replace("{{NSFW_VALUE}}", nsfw ? "checked" : "")
     .replace("{{THEME_VALUE}}", `data-theme="${theme}"`)
-    .replace("{{HOST}}", url.origin);
+    .replaceAll("{{HOST}}", url.origin);
 
   return new Response(newPage, response);
 };
