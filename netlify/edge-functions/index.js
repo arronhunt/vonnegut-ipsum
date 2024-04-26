@@ -12,9 +12,11 @@ export default async (request, context) => {
 
   const count = url.searchParams.get("count") || 5;
   const mode = url.searchParams.get("mode") || 3;
-  const nsfw = url.searchParams.get("nsfw")
-    ? parseBoolean(url.searchParams.get("nsfw"))
-    : true;
+  const nsfw = url.searchParams.get("nsfw") || "on";
+  const nsfw_bool = nsfw === "on" ? true : false;
+  // const nsfw = url.searchParams.get("nsfw")
+  //   ? parseBoolean(url.searchParams.get("nsfw"))
+  //   : true;
   const pilgrim_mode = url.searchParams.get("pilgrim_mode")
     ? parseBoolean(url.searchParams.get("pilgrim_mode"))
     : true;
@@ -27,7 +29,7 @@ export default async (request, context) => {
       `${url.origin}/api?z=0`,
       `count=${count}`,
       `mode=${mode}`,
-      `nsfw=${nsfw}`,
+      `nsfw=${nsfw_bool}`,
       `pilgrim_mode=${pilgrim_mode}`,
     ].join("&")
   ).then((res) => res.json());
@@ -46,12 +48,13 @@ export default async (request, context) => {
       /<!-- output -->([\s\S]*?)<!-- \/output -->/g,
       `<p>${formatted_text}</p>`
     )
-    .replace("{{COUNT_VALUE}}", count)
+    .replace(/{{COUNT_VALUE}}/g, count)
     .replace(find_selected, "selected")
     .replace(find_not_selected, "")
-    .replace("{{NSFW_VALUE}}", nsfw ? "checked" : "")
-    .replace("{{THEME_VALUE}}", `data-theme="${theme}"`)
-    .replaceAll("{{HOST}}", url.origin);
+    .replace(/{{NSFW_VALUE}}/g, nsfw)
+    .replace(/{{NSFW_BOOL_VALUE}}/g, nsfw_bool ? "checked" : "")
+    .replace(/{{THEME_VALUE}}/g, `data-theme="${theme}"`)
+    .replace(/{{HOST}}/g, url.origin);
 
   return new Response(newPage, response);
 };

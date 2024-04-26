@@ -66,10 +66,3 @@ export default handler;
 export const config = {
   path: "/api",
 };
-
-// module.exports = {
-//   handler,
-//   config: {
-//     path: "/foobar",
-//   },
-// };
