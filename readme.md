@@ -4,16 +4,20 @@
 
 # Kurt Vonnegut Ipsum
 
-This is an open source project that generates lorem ipsum style text using prose from author Kurt Vonnegut.
+This is an open source project that generates lorem ipsum style text using prose from author [Kurt Vonnegut](https://en.wikipedia.org/wiki/Kurt_Vonnegut).
 
 ## How to generate text
+
+### Using the website
+
+Visit the website [https://vonnegutipsum.com/](https://vonnegutipsum.com/)
 
 ### Using the API
 
 With default parameters:
 
-```
-$ curl {{HOST}}/api
+```bash
+$ curl -s https://vonnegutipsum.com//api
 
 {
   "text": "All this happened, more or less...",
@@ -27,8 +31,8 @@ $ curl {{HOST}}/api
 
 Sending parameters:
 
-```
-curl -s {{HOST}}/api?count=8&mode=1&nsfw=false
+```bash
+curl -s https://vonnegutipsum.com/api?count=8&mode=1&nsfw=false
 
 {
   "text": "Poo-tee-weet. Welcome to Earth. Hello babies.",

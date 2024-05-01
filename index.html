@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Kurt Vonnegut Ipsum</title>
+    <title>Vonnegut Ipsum</title>
+    <meta
+      name="description"
+      content="Generate placeholder text in the style of Kurt Vonnegut."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Opengraph image -->
@@ -18,7 +22,12 @@
         <form id="generate" method="get" action="./" class="controls">
           <div class="control">
             <label class="visually-hidden" for="count">How many?</label>
-            <input name="count" type="number" value="{{COUNT_VALUE}}" />
+            <input
+              id="count"
+              name="count"
+              type="number"
+              value="{{COUNT_VALUE}}"
+            />
           </div>
 
           <div class="control select_wrapper">
